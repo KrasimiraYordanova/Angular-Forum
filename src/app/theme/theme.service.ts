@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { ITheme } from '../interfaces/theme';
 
 const apiURL = environment.apiURL;
 
@@ -12,6 +13,6 @@ export class ThemeService {
   constructor(private httpClient: HttpClient) { }
 
   loadThemes() {
-    return this.httpClient.get(`${apiURL}/themes`);
+    return this.httpClient.get<ITheme[]>(`${apiURL}/themes`);
   }
 }
