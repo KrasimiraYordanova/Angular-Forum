@@ -9,7 +9,7 @@ import { ITheme } from 'src/app/interfaces/theme';
 })
 export class ThemesComponent implements OnInit {
 
-  themeList: ITheme[] | null = null;
+  themes: ITheme[] | null = null;
 
   constructor(private themeService: ThemeService) {}
 
@@ -17,8 +17,8 @@ export class ThemesComponent implements OnInit {
   ngOnInit(): void {
     this.themeService.loadThemes().subscribe({
       next: (value) => {
-        console.log(value);
-        this.themeList = value;
+        // console.log(value);
+        this.themes = value;
       },
       error: (err) => {
         console.log(err);

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemesComponent } from './themes/themes.component';
 import { ThemeDetailComponent } from './theme-detail/theme-detail.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -11,7 +12,8 @@ import { ThemeDetailComponent } from './theme-detail/theme-detail.component';
     ThemeDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports: [
     ThemesComponent,

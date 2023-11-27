@@ -1,9 +1,6 @@
-import { IPost } from "./post";
-import { ITheme } from "./theme";
-
 export interface IUser {
-    themes: ITheme[];
-    posts: IPost[];
+    themes: string[];
+    posts: string[];
     _id: string;
     tel: string;
     email: string;

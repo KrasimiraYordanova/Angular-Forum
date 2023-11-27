@@ -21,7 +21,7 @@ import { PostModule } from './post/post.module';
     HttpClientModule,
     CoreModule,
     ThemeModule,
-    PostModule
+    PostModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
