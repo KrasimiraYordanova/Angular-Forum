@@ -12,6 +12,10 @@ import { ThemeDetailComponent } from './theme-detail/theme-detail.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ThemesComponent,
+    ThemeDetailComponent
   ]
 })
 export class ThemeModule { }
