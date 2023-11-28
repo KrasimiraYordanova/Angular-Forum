@@ -13,7 +13,7 @@ export class LoginComponent {
     this.authService.user = {
       username: "Aiden",
       email: "aidenj@gmail.com"
-    }
+    } as any
 
     this.router.navigate(["/"]);
   }

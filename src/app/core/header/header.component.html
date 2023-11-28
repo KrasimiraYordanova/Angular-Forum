@@ -3,18 +3,28 @@
         <div class="logo-wrap">
             <p class="logo"><span class="logo">SoftUni Forum</span></p>
         </div>
-        <div class="mini-navbar" *ngIf="isLogged">
+        <div class="mini-navbar">
             <ul>
-                <li>
-                    <a routerLink="/auth/login">Login</a>
-                </li>
-                <li>
-                    <a routerLink="/auth/register">Register</a>
-                </li>
+                <ng-container *ngIf="!isLogged">
+                    <li>
+                        <a routerLink="/auth/login">Login</a>
+                    </li>
+                    <li>
+                        <a routerLink="/auth/register">Register</a>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="isLogged">
+                    <li>
+                        <a routerLink="/auth/profile">{{user?.username}}'s profile</a>
+                    </li>
+                    <li>
+                        <a routerLink="/auth/logout">Logout</a>
+                    </li>
+                </ng-container>
             </ul>
         </div>
     </div>
-    <nav>
+    <nav *ngIf="isLogged">
         <ul>
             <li>
                 <a href="#">Home</a>
