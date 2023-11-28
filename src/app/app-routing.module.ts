@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
-import { LandingComponent } from './main/landing/landing.component';
-import { HomeComponent } from './main/home/home.component';
+import { LandingComponent } from './landing/landing.component';
+import { HomeComponent } from './home/home.component';
+import { CreateThemeComponent } from './theme/create-theme/create-theme.component';
 
 const routes: Routes = [
   {

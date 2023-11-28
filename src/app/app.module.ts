@@ -7,19 +7,26 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
-import { MainModule } from './main/main.module';
+
+import { HomeComponent } from './home/home.component';
+import { LandingComponent } from './landing/landing.component';
+import { ThemeModule } from './theme/theme.module';
+import { PostModule } from './post/post.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
     AuthModule,
+    ThemeModule,
+    PostModule,
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
-    MainModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -30,11 +30,13 @@
                 <a routerLink="/home">Home</a>
             </li>
             <li>
-                <a routerLink="">Themes</a>
+                <a routerLink="/theme">Themes</a>
             </li>
+        <ng-container *ngIf="isLogged">
             <li>
-                <a routerLink="">New Theme</a>
+                <a routerLink="/theme/create">New Theme</a>
             </li>
+        </ng-container>
         </ul>
     </nav>
 </header>

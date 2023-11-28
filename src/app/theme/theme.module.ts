@@ -4,6 +4,7 @@ import { ThemesComponent } from './themes/themes.component';
 import { ThemeDetailComponent } from './theme-detail/theme-detail.component';
 import { SharedModule } from '../shared/shared.module';
 import { CreateThemeComponent } from './create-theme/create-theme.component';
+import { ThemeRoutingModule } from './theme-routing.module';
 
 
 
@@ -15,11 +16,13 @@ import { CreateThemeComponent } from './create-theme/create-theme.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ThemeRoutingModule
   ],
   exports: [
     ThemesComponent,
-    ThemeDetailComponent
+    ThemeDetailComponent,
+    CreateThemeComponent,
   ]
 })
 export class ThemeModule { }
