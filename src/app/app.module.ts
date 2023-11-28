@@ -9,23 +9,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 
 import { HomeComponent } from './home/home.component';
-import { LandingComponent } from './landing/landing.component';
 import { ThemeModule } from './theme/theme.module';
-import { PostModule } from './post/post.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LandingComponent
+    HomeComponent
   ],
   imports: [
-    BrowserModule,
     AuthModule,
     ThemeModule,
-    PostModule,
     AppRoutingModule,
+    BrowserModule,
     HttpClientModule,
+    SharedModule,
     CoreModule,
   ],
   providers: [],

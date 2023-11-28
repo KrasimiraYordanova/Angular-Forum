@@ -2,11 +2,11 @@ import { Component, DoCheck } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+  selector: 'app-theme-main',
+  templateUrl: './theme-main.component.html',
+  styleUrls: ['./theme-main.component.scss']
 })
-export class LandingComponent implements DoCheck {
+export class ThemeMainComponent implements DoCheck {
 
   isLogged = false;
 

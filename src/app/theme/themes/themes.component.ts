@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../theme.service';
-import { ITheme } from 'src/app/interfaces/theme';
+import { ITheme } from 'src/app/shared/interfaces/theme';
 
 @Component({
   selector: 'app-themes',

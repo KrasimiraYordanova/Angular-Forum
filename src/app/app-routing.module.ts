@@ -1,20 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
-import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: "full",
-    component: LandingComponent,
-    data: {
-      title: 'Forum'
-    }
-  },
-  {
-    path: 'home',
     component: HomeComponent,
     data: {
       title: 'Home'

@@ -4,33 +4,50 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthGuardActivate } from '../shared/guards/authGuard.activate';
 
 const routes: Routes = [
   {
-    path: 'auth/login',
-    component: LoginComponent,
-    data: {
-      title: 'Login'
-    }
+    path: 'auth',
+    children: [
+      {
+        path: 'login',
+        canActivate: [AuthGuardActivate],
+        component: LoginComponent,
+        data: {
+          title: 'Login',
+          loginRequired: false
+        }
+      },
+      {
+        path: 'register',
+        canActivate: [AuthGuardActivate],
+        component: RegisterComponent,
+        data: {
+          title: 'Register',
+          loginRequired: false
+        }
+      },
+      {
+        path: 'profile',
+        canActivate: [AuthGuardActivate],
+        component: ProfileComponent,
+        data: {
+          title: 'Profile',
+          loginRequired: true
+        }
+      },
+      {
+        path: 'logout',
+        canActivate: [AuthGuardActivate],
+        component: LogoutComponent,
+        data: {
+          title: 'Profile',
+          loginRequired: true
+        }
+      },
+    ]
   },
-  {
-    path: 'auth/register',
-    component: RegisterComponent,
-    data: {
-      title: 'Register'
-    }
-  },
-  {
-    path: 'auth/profile',
-    component: ProfileComponent,
-    data: {
-      title: 'Profile'
-    }
-  },
-  {
-    path: 'auth/logout',
-    component: LogoutComponent
-  }
 ];
 
 @NgModule({
