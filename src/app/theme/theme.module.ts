@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { ThemesComponent } from './themes/themes.component';
 import { ThemeDetailComponent } from './theme-detail/theme-detail.component';
 import { SharedModule } from '../shared/shared.module';
+import { CreateThemeComponent } from './create-theme/create-theme.component';
 
 
 
 @NgModule({
   declarations: [
     ThemesComponent,
-    ThemeDetailComponent
+    ThemeDetailComponent,
+    CreateThemeComponent
   ],
   imports: [
     CommonModule,
