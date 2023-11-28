@@ -10,15 +10,24 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ThemesComponent
+        component: ThemesComponent,
+        data: {
+          title: 'Themes'
+        }
       },
       {
         path: 'create',
-        component: CreateThemeComponent
+        component: CreateThemeComponent,
+        data: {
+          title: 'Create Theme'
+        }
       },
       {
         path: 'detail/:id',
-        component: ThemeDetailComponent
+        component: ThemeDetailComponent,
+        data: {
+          title: 'Theme info'
+        }
       },
     ]
   }

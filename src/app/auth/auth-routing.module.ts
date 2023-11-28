@@ -8,15 +8,24 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {
     path: 'auth/login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: {
+      title: 'Login'
+    }
   },
   {
     path: 'auth/register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    data: {
+      title: 'Register'
+    }
   },
   {
     path: 'auth/profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    data: {
+      title: 'Profile'
+    }
   },
   {
     path: 'auth/logout',
