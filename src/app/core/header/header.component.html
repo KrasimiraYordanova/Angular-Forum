@@ -3,13 +3,13 @@
         <div class="logo-wrap">
             <p class="logo"><span class="logo">SoftUni Forum</span></p>
         </div>
-        <div class="mini-navbar" *ngIf="!isLogged">
+        <div class="mini-navbar" *ngIf="isLogged">
             <ul>
                 <li>
-                    <a href="#">Login</a>
+                    <a routerLink="/auth/login">Login</a>
                 </li>
                 <li>
-                    <a href="#">Register</a>
+                    <a routerLink="/auth/register">Register</a>
                 </li>
             </ul>
         </div>

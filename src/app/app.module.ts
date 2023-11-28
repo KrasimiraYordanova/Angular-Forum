@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
 import { ThemeModule } from './theme/theme.module';
 import { PostModule } from './post/post.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PostModule } from './post/post.module';
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
+    AuthModule,
     ThemeModule,
     PostModule,
   ],
