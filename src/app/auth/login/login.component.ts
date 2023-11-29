@@ -13,7 +13,10 @@ export class LoginComponent {
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) {}
 
   loginHandler(form: NgForm): void {
-    
+    console.log(form);
+    if(form.invalid) return;
+    const {email, password} = form.value;
+    console.log(email, password);
     // this.authService.user = {
     //   username: "Aiden",
     //   email: "aidenj@gmail.com"
