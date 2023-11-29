@@ -6,12 +6,12 @@
 
             <p class="field field-icon">
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-                <input class="input-error" type="email" #emailInput="ngModel" ngModel name="email" id="email" placeholder="john.doe@gmail.com" required>
+                <input class="input-error" type="email" #emailInput="ngModel" ngModel name="email" id="email" [appEmailValidator]="['com','bg']" placeholder="john.doe@gmail.com" required>
             </p>
             {{emailInput.errors | json}}
             <ng-container *ngIf="emailInput.touched">
                 <p class="error" *ngIf="emailInput.errors?.['required']">Email is required!</p>
-                <p class="error">Email is not valid!</p>
+                <p class="error" *ngIf="emailInput.errors?.['emailValidator']">Email is not valid!</p>
             </ng-container>
 
             <p class="field field-icon">
