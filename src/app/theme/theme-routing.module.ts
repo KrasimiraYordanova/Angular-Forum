@@ -8,7 +8,6 @@ import { AuthGuardActivate } from '../shared/guards/authGuard.activate';
 const routes: Routes = [
   {
     path: 'theme',
-    canActivate: [AuthGuardActivate],
     children: [
       {
         path: '',
@@ -21,6 +20,7 @@ const routes: Routes = [
       {
         path: 'create',
         component: CreateThemeComponent,
+        // canActivate: [AuthGuardActivate],
         data: {
           title: 'Create Theme',
           loginRequired: true

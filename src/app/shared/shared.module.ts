@@ -4,6 +4,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
 import { RouterModule } from '@angular/router';
 import { EmailValidatorDirective } from './validators/email-validator.directive';
+import { MatchingPasswordsDirective } from './validators/matching-passwords.directive';
 
 
 
@@ -11,7 +12,8 @@ import { EmailValidatorDirective } from './validators/email-validator.directive'
   declarations: [
     LoaderComponent,
     WelcomeMessageComponent,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    MatchingPasswordsDirective
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { EmailValidatorDirective } from './validators/email-validator.directive'
   exports: [
     LoaderComponent,
     WelcomeMessageComponent,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    MatchingPasswordsDirective
   ]
 })
 export class SharedModule { }

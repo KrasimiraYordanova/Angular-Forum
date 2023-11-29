@@ -7,6 +7,7 @@ import { CreateThemeComponent } from './create-theme/create-theme.component';
 import { ThemeRoutingModule } from './theme-routing.module';
 import { ThemeMainComponent } from './theme-main/theme-main.component';
 import { PostModule } from '../post/post.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { PostModule } from '../post/post.module';
     CommonModule,
     SharedModule,
     PostModule,
-    ThemeRoutingModule
+    ThemeRoutingModule,
+    FormsModule
   ],
   exports: [
     ThemesComponent,
