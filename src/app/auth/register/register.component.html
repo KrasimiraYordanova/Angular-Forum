@@ -12,6 +12,10 @@
             <p *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['required']" class="error">
                 Username is required!
             </p>
+            <p *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['minlength']"
+                class="error">
+                Username must be at least have 2 characters long!
+            </p>
 
             <!-- email -->
             <p class="field field-icon">

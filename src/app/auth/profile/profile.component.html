@@ -1,18 +1,71 @@
 <div class="container">
     <div class="profile"><img src="/assets/profile.png" alt="default user">
         <h3>User Info:</h3>
-        <div class="flex">
-            <p>Username: </p>
-            <p>Johny</p>
-        </div>
-        <div class="flex">
-            <p>Email: </p>
-            <p>john.doe@gmail.com</p>
-        </div>
-        <div class="flex">
-            <p>Phone: </p>
-            <p>+359 885 888 888</p>
-        </div>
-        <button class="edit-button">Edit</button>
+
+        <ng-container *ngIf="!editMode">
+            <!-- USERNAME -->
+            <div class="flex">
+                <p>Username: </p>
+                <p>{{user.username}}</p>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="flex">
+                <p>Email: </p>
+                <p>{{user.email}}</p>
+            </div>
+
+            <!-- PHONE -->
+            <div class="flex">
+                <p>Phone: </p>
+                <p>{{user.countryCode}} {{user.tel}}</p>
+            </div>
+
+            <button class="edit-button" (click)="toggleEditMode()">Edit</button>
+        </ng-container>
+
+        <form [formGroup]="profileForm" class="register" (ngSubmit)="profileHandler()" *ngIf="editMode">
+
+            <!-- EDIT MODE USERNAME -->
+            <p class="field field-icon">
+                <label for="username"><span><i class="fas fa-user"></i></span></label>
+                <input class="input-error" type="text" formControlName="username" id="username">
+            </p>
+            <ng-container *ngIf="profileForm.get('username')?.touched || profileForm.get('username')?.invalid"></ng-container>
+            <p *ngIf="profileForm.get('username')?.errors?.['required']"
+                class="error">
+                Username is required!
+            </p>
+            <p *ngIf="profileForm.get('username')?.errors?.['minlength']"
+                class="error">
+                Username must be at least have 2 characters long!
+            </p>
+
+            <!-- EDIT MODE EMAIL -->
+            <p class="field field-icon">
+                <label for="email"><span><i class="fas fa-envelope"></i></span></label>
+                <input type="email" formControlName="email" id="email">
+            </p>
+            <ng-container *ngIf="profileForm.get('email')?.touched || profileForm.get('email')?.invalid">
+                <p *ngIf="profileForm.get('email')?.errors?.['required']" class="error">
+                    Email is required!
+                </p>
+                <p *ngIf="profileForm.get('email')?.errors?.['emailValidator']" class="error">
+                    Email is not valid!
+                </p>
+            </ng-container>
+
+            <!-- EDIT MODE PHONE -->
+            <p class="field field-icon">
+                <label for="tel"><span><i class="fas fa-phone"></i></span></label>
+                <select formControlName="countryCode" id="select-tel" class="tel">
+                    <option value="00359">+359</option>
+                    <option value="0044">+44</option>
+                </select>
+                <input type="text" formControlName="tel" id="tel">
+            </p>
+
+            <button class="edit-button" (click)="profileHandler()">Save</button>
+        </form>
     </div>
 </div>

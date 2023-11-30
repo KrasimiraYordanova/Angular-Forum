@@ -10,7 +10,7 @@ import { emailValidator, matchingPasswordsGroupValidator } from 'src/app/shared/
 export class RegisterComponent {
 
   registerForm = this.fb.group({
-    username: ['', [Validators.required, Validators.minLength(5)]],
+    username: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, emailValidator(['com', 'bg'])]],
     countryCode: [''],
     tel: [''],
