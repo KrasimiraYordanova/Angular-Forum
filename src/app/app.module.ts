@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,8 @@ import { ThemeModule } from './theme/theme.module';
 import { SharedModule } from './shared/shared.module';
 import { authInterceptorProvider } from './auth.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { BehaviorSubject } from 'rxjs';
+import { API_ERROR } from './shared/constants/contants';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,11 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     CoreModule,
   ],
   providers: [
-    authInterceptorProvider
+    authInterceptorProvider,
+    {
+      provide: API_ERROR,
+      useValue: new BehaviorSubject(null)
+    }
   ],
   bootstrap: [AppComponent]
 })
