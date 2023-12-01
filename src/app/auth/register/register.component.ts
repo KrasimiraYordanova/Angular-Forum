@@ -33,7 +33,6 @@ export class RegisterComponent {
     const phoneNumber = `${countryCode} ${tel}`;
     this.authService.register(username!, email!, password!, rePassword!, phoneNumber!)
     .subscribe(user => {
-      this.authService.user = user;
       this.router.navigate(['/theme']);
     });
   }

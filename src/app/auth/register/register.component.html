@@ -64,8 +64,8 @@
                 <p *ngIf="registerForm.get('pass')?.errors?.['matchingPasswordsValidator'] && registerForm.get('pass')?.get('rePassword')?.touched" class="error">Repeat Password does not match password!</p>
             </ng-container>
 
-            {{registerForm.value | json}}
-            {{registerForm.get('pass')?.errors | json}}
+            <!-- {{registerForm.value | json}}
+            {{registerForm.get('pass')?.errors | json}} -->
 
             <button [disabled]="registerForm.invalid">Create Account</button>
 

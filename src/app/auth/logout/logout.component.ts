@@ -14,12 +14,10 @@ export class LogoutComponent implements OnInit{
   ngOnInit(): void {
     this.authService.logout().subscribe({
       next: () => {
-        this.authService.user = null;
         this.router.navigate(["/auth/login"]);
       },
       // TODO: change error function
       error: (err) => {
-        this.authService.user = null;
         this.router.navigate(["/auth/login"]);
       }
     })

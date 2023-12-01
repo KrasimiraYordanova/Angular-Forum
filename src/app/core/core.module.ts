@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -11,7 +12,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     HeaderComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   exports: [
     HeaderComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorComponent
   ]
 })
 export class CoreModule { }
