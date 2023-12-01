@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { emailValidator, matchingPasswordsGroupValidator } from 'src/app/shared/validators';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -22,9 +23,14 @@ export class RegisterComponent {
     })
   })
   
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   registerHandler() {
-    console.log(this.registerForm.value);
+    // console.log(this.registerForm.value);
+    if(this.registerForm.invalid) return;
+    const {username, email, pass: {password, rePassword} = {}, tel, countryCode} = this.registerForm.value;
+    const phoneNumber = `${countryCode} ${tel}`;
+    this.authService.register(username!, email!, password!, rePassword!, phoneNumber!)
+    .subscribe(result => console.log(result));
   }
 }
