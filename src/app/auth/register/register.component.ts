@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { emailValidator, matchingPasswordsGroupValidator } from 'src/app/shared/validators';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,7 @@ export class RegisterComponent {
     })
   })
   
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
   registerHandler() {
     // console.log(this.registerForm.value);
@@ -31,6 +32,9 @@ export class RegisterComponent {
     const {username, email, pass: {password, rePassword} = {}, tel, countryCode} = this.registerForm.value;
     const phoneNumber = `${countryCode} ${tel}`;
     this.authService.register(username!, email!, password!, rePassword!, phoneNumber!)
-    .subscribe(result => console.log(result));
+    .subscribe(user => {
+      this.authService.user = user;
+      this.router.navigate(['/theme']);
+    });
   }
 }

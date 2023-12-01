@@ -12,11 +12,13 @@ import { HomeComponent } from './home/home.component';
 import { ThemeModule } from './theme/theme.module';
 import { SharedModule } from './shared/shared.module';
 import { authInterceptorProvider } from './auth.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AuthenticateComponent
   ],
   imports: [
     AuthModule,

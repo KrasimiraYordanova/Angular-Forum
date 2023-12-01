@@ -16,7 +16,7 @@ export class AuthGuardActivate implements CanActivate {
     const loginRequired = route.data['loginRequired'];
     if(loginRequired === undefined || this.authService.isLoggedIn === loginRequired) { return true; }
     return this.router.createUrlTree(['/auth/login']);
-    return this.router.createUrlTree(['/auth/login?returnUrl=${route.url}']);
+    // return this.router.createUrlTree(['/auth/login?returnUrl=${route.url}']);
     }
     
 }

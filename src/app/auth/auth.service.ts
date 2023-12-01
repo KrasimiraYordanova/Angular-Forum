@@ -22,4 +22,12 @@ export class AuthService {
   login(email: string, password: string) {
     return this.httpClient.post<any>(`/api/login`, {email, password});
   }
+
+  profile() {
+    return this.httpClient.get<IUser>('/api/users/profile');
+  }
+
+  logout() {
+    return this.httpClient.post<void>('/api/logout', {});
+  }
 }

@@ -12,18 +12,16 @@ export class LoginComponent {
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) {}
 
-  loginHandler(form: NgForm): void {
-    console.log(form);
-    if(form.invalid) return;
-    const {email, password} = form.value;
-    console.log(email, password);
-    // this.authService.user = {
-    //   username: "Aiden",
-    //   email: "aidenj@gmail.com"
-    // } as any
+  // const returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
+  // this.router.navigate([returnUrl]);
 
-    // const returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
-    // this.router.navigate([returnUrl]);
+  loginHandler(loginForm: NgForm) {
+    if(loginForm.invalid) return;
+    const {email, password} = loginForm.value;
+    this.authService.login(email!, password!)
+    .subscribe(user => {
+      this.authService.user = user;
+      this.router.navigate(['/theme']);
+    });
   }
-
 }

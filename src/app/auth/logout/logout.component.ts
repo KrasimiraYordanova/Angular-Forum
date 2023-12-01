@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -7,11 +7,21 @@ import { Router } from '@angular/router';
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.scss']
 })
-export class LogoutComponent {
+export class LogoutComponent implements OnInit{
 
-  constructor(private router: Router, private authService: AuthService) {
-    this.authService.user = null;
+  constructor(private router: Router, private authService: AuthService) {}
 
-    this.router.navigate(["/"]);
+  ngOnInit(): void {
+    this.authService.logout().subscribe({
+      next: () => {
+        this.authService.user = null;
+        this.router.navigate(["/auth/login"]);
+      },
+      // TODO: change error function
+      error: (err) => {
+        this.authService.user = null;
+        this.router.navigate(["/auth/login"]);
+      }
+    })
   }
 }
